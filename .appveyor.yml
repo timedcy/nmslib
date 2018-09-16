@@ -29,7 +29,8 @@ install:
 build_script:
 - ps: cd python_bindings
 - cmd: |
-    python setup.py bdist
+    pip install -r reqirements.txt
+    python setup.py bdist_wheel
     pip wheel --no-deps --wheel-dir=wheelhouse/ . 
    
 - ps: dir ./wheelhouse
