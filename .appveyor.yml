@@ -34,10 +34,10 @@ build_script:
     python setup.py bdist_wheel
     pip wheel --no-deps --wheel-dir=wheelhouse/ . 
    
-- ps: dir ./wheelhouse
+- ps: dir ./
 skip_tags: true
 artifacts:
-- path: ./wheelhouse/**
+- path: ./*
   name: dists
   type: WebDeployPackage
 #test_script:
