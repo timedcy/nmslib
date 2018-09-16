@@ -30,6 +30,9 @@ build_script:
 - ps: cd python_bindings
 - cmd: |
     pip install -e .
+    pip install wheel
+    pip install pybind11
+    pip wheel --no-deps --wheel-dir=wheelhouse/ . 
     
 - ps: dir ./build/
 skip_tags: true
