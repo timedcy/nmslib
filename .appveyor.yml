@@ -31,14 +31,18 @@ build_script:
 - cmd: |
     pip install -r requirements.txt
     pip install wheel
+    
+    python setup.py install
     python setup.py bdist_wheel
-    pip wheel --no-deps --wheel-dir=wheelhouse/ . 
+    
+    #python setup.py bdist_wheel
+    #pip wheel --no-deps --wheel-dir=wheelhouse/ . 
    
 - ps: dir ./
 skip_tags: true
 artifacts:
-- path: ./*
-  name: dists
+- path: dist\*.whl
+  name: Wheel
   type: WebDeployPackage
 #test_script:
 #- cmd: python setup.py test
