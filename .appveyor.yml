@@ -19,7 +19,7 @@ install:
       pip install --disable-pip-version-check --user --upgrade pip setuptools six
       
     } elseif ($env:CONDA) {
-      if ($env:CONDA -eq 36") { $env:CONDA = "" }
+      if ($env:CONDA -eq "36") { $env:CONDA = "" }
       if ($env:PLATFORM -eq "x64") { $env:CONDA = "$env:CONDA-x64" }
       $env:PATH = "C:\Miniconda$env:CONDA\;C:\Miniconda$env:CONDA\Scripts\;$env:PATH"
       conda config --set always_yes yes --set changeps1 no
