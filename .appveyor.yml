@@ -30,7 +30,7 @@ build_script:
 - ps: cd python_bindings
 - cmd: |
     pip install -e .
-- ps: dir ./build
+- ps: dir ./build/lib.win-amd64-3.6/
 skip_tags: true
 artifacts:
 - path: ./*
