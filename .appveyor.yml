@@ -30,11 +30,7 @@ build_script:
 - ps: cd python_bindings
 - cmd: |
     pip install -e .
-- ps:   
-    echo ls ./
-    ls ./
-    echo ls ./build
-    ls ./build
+- ps: dir ./build
 skip_tags: true
 artifacts:
 - path: ./*
