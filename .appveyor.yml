@@ -27,8 +27,8 @@ install:
       conda install -q conda-build
     }
     echo ls ./
-    ls ./
-    echo ls ./dists
+    ls ./python_bindings
+    echo ls ./python_bindings
     ls ./dists
 build_script:
 - ps: cd python_bindings
