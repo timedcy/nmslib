@@ -29,13 +29,13 @@ install:
 build_script:
 - ps: cd python_bindings
 - cmd: |
-    pip install -e .
+    python setup.py bdist
     pip wheel --no-deps --wheel-dir=wheelhouse/ . 
    
-- ps: dir ./build/
+- ps: dir ./wheelhouse
 skip_tags: true
 artifacts:
-- path: ./build/lib.win-amd64-3.6/nmslib.cp36-win_amd64.pyd
+- path: ./wheelhouse/**
   name: dists
   type: WebDeployPackage
 #test_script:
