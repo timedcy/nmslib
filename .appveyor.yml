@@ -7,7 +7,7 @@ environment:
     DISTUTILS_USE_SDK: 1
     MSSdk: 1
   matrix:
-  - PYTHON: 27
+  - PYTHON: 36
 install:
 - cmd: '"%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%'
 - cmd: git config core.symlinks true
@@ -17,8 +17,9 @@ install:
       if ($env:PLATFORM -eq "x64") { $env:PYTHON = "$env:PYTHON-x64" }
       $env:PATH = "C:\Python$env:PYTHON\;C:\Python$env:PYTHON\Scripts\;$env:PATH"
       pip install --disable-pip-version-check --user --upgrade pip setuptools six
+      
     } elseif ($env:CONDA) {
-      if ($env:CONDA -eq "27") { $env:CONDA = "" }
+      if ($env:CONDA -eq 36") { $env:CONDA = "" }
       if ($env:PLATFORM -eq "x64") { $env:CONDA = "$env:CONDA-x64" }
       $env:PATH = "C:\Miniconda$env:CONDA\;C:\Miniconda$env:CONDA\Scripts\;$env:PATH"
       conda config --set always_yes yes --set changeps1 no
