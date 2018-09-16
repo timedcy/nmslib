@@ -33,10 +33,10 @@ build_script:
     pip install wheel
     
     python setup.py install
-    python setup.py bdist_wheel
+    python -W ignore setup.py bdist_wheel
     
-    #python setup.py bdist_wheel
-    #pip wheel --no-deps --wheel-dir=wheelhouse/ . 
+#python setup.py bdist_wheel
+#pip wheel --no-deps --wheel-dir=wheelhouse/ . 
    
 - ps: dir ./
 skip_tags: true
