@@ -41,9 +41,10 @@ build_script:
 - ps: dir ./
 - ps: dir dist\\*
 - ps: dir build\\*
+- ps: dir "%APPVEYOR_BUILD_FOLDER%"
 skip_tags: true
 artifacts:
-- path: dist\\*
+- path: python_bindings\\dist\\*
   name: Wheel
   type: WebDeployPackage
 #test_script:
