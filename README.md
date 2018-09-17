@@ -1,3 +1,8 @@
+add appvoyer config for python 3.6 (timedcy@2018-09-17)
+
+
+
+
 [![Pypi version](https://img.shields.io/pypi/v/nmslib.svg)](http://pypi.python.org/pypi/nmslib)
 [![Build Status](https://travis-ci.org/nmslib/nmslib.svg?branch=master)](https://travis-ci.org/nmslib/nmslib)
 [![Windows Build Status](https://ci.appveyor.com/api/projects/status/wd63b9doe7xco81t/branch/master?svg=true)](https://ci.appveyor.com/project/searchivarius/nmslib)
