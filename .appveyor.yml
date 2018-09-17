@@ -31,8 +31,8 @@ build_script:
 - cmd: |
     pip install -r requirements.txt
     pip install wheel --quiet
-    python -W ignore setup.py install --quiet
-    python -W ignore setup.py bdist_wheele/ .
+    python -W ignore setup.py install
+    python -W ignore setup.py bdist_wheele
 skip_tags: true
 artifacts:
 - path: python_bindings\dist\*
