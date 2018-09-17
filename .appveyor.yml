@@ -39,9 +39,11 @@ build_script:
 #pip wheel --no-deps --wheel-dir=wheelhouse/ . 
    
 - ps: dir ./
+- ps: dir dist\\*
+- ps: dir build\\*
 skip_tags: true
 artifacts:
-- path: dist\*.whl
+- path: dist\\*
   name: Wheel
   type: WebDeployPackage
 #test_script:
