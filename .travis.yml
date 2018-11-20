@@ -29,11 +29,15 @@ before_install:
   which pip
   $PY -V
   $PIP -V
-
+- |
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
     export CXX=g++-4.9 CC=gcc-4.9; 
-    pip install --user --upgrade pip virtualenv
-    virtualenv -p python$PYTHON venv
+    pip install --user --upgrade pip virtualenv    
+  fi
+
+- |
+  if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
+    virtualenv -p $(which $PY) venv
     source venv/bin/activate
   fi
 
