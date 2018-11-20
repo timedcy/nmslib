@@ -23,7 +23,7 @@ addons:
 
 before_install:
 - |
-  pyenv install 3.6.3
+  pyenv shell 3.6.3
 - |
   PIP=pip
   PY=python$PYTHON
@@ -41,7 +41,7 @@ before_install:
 - |
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
   
-    pyenv shell 3.6.3
+
     pyenv virtualenv -p $PY 3.6.3 venv
     source venv/bin/activate
   fi
