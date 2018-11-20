@@ -4,7 +4,7 @@ matrix:
   fast_finish: true
   include:
   - os: linux
-    env: PYTHON=3.6
+    env: PYTHON=3
  
 addons:
   apt:
