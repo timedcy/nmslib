@@ -1,5 +1,5 @@
 add appvoyer config for python 3.6 (timedcy@2018-09-17)
-
+add travis config for python 3.6 (timedcy@2018-11-20)
 
 
 
