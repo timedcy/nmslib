@@ -4,7 +4,7 @@ matrix:
   fast_finish: true
   include:
   - os: linux
-    env: PYTHON=3
+    env: PYTHON=3.6
  
 addons:
   apt:
@@ -29,6 +29,9 @@ before_install:
   which pip
   $PY -V
   $PIP -V
+  ls -hl /opt/pyenv/shims
+  python3 -V
+  python3.6 -V
 - |
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
     export CXX=g++-4.9 CC=gcc-4.9; 
