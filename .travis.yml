@@ -27,8 +27,7 @@ before_install:
   PY=python$PYTHON
   which $PY
   which pip
-  $PY -V
-  $PIP -V
+  $PY -V 
   ls -hl /opt/pyenv/shims
   python3 -V
 - |
@@ -39,7 +38,7 @@ before_install:
 
 - |
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
-    virtualenv -p $PY 3.6.3 venv
+    pyenv virtualenv -p $PY 3.6.3 venv
     source venv/bin/activate
   fi
 
