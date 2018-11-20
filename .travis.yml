@@ -23,6 +23,8 @@ addons:
 
 before_install:
 - |
+  which python$PYTHON
+  python$PYTHON -V
   PIP=pip
   PY=python
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
