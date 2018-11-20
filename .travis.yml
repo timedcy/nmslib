@@ -40,7 +40,7 @@ before_install:
 
 - |
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
-    virtualenv -p $PY 3.6.3 venv
+    virtualenv -p $PY venv
     source venv/bin/activate
   fi
 
