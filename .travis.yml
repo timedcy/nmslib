@@ -28,8 +28,8 @@ before_install:
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
     export CXX=g++-4.8 CC=gcc-4.8; 
     pip install --user --upgrade pip virtualenv
-    virtualenv -p python_$PYTHON venv
-    source venv/bin/activate
+    virtualenv -p python$PYTHON venv_py3.6
+    source venv_py3.6/bin/activate
   fi
 
 install:
