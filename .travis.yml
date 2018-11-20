@@ -53,6 +53,7 @@ script:
       ./release/bunit
       ./release/test_integr integr.log 
       cd ..
+      ls -lh
   fi
 
 cache:
