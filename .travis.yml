@@ -11,7 +11,7 @@ addons:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
+    - g++-4.9
     - libblas-dev
     - liblapack-dev
     - gfortran
@@ -31,10 +31,10 @@ before_install:
   $PIP -V
 
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
-    export CXX=g++-4.8 CC=gcc-4.8; 
+    export CXX=g++-4.9 CC=gcc-4.9; 
     pip install --user --upgrade pip virtualenv
-    #virtualenv -p python$PYTHON venv_py3.6
-    #source venv_py3.6/bin/activate
+    virtualenv -p python$PYTHON venv
+    source venv/bin/activate
   fi
 
 install:
