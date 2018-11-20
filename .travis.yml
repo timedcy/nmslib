@@ -52,9 +52,9 @@ install:
     cmake similarity_search
   fi
   make -j 4
-  echo "travis_wait travis_retry $PIP install --user -r python_bindings/requirements.txt scipy six flake8"
-  travis_wait travis_retry $PIP install --user -r python_bindings/requirements.txt scipy six flake8
-  travis_retry cd python_bindings && $PY setup.py build install --user && cd ..
+  echo "travis_wait travis_retry $PIP install  -r python_bindings/requirements.txt scipy six flake8"
+  travis_wait travis_retry $PIP install -r python_bindings/requirements.txt scipy six flake8
+  travis_retry cd python_bindings && $PY setup.py build install && cd ..
   ls -lh
   cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh
 
