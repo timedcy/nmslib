@@ -1,5 +1,8 @@
 language: cpp
-
+branches:
+  only:
+  - master
+  - /^v.*$/
 matrix:
   fast_finish: true
   include:
