@@ -57,19 +57,13 @@ install:
   travis_retry cd python_bindings && $PY setup.py build install && cd ..
   ls -lh
   cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh
+  ls -hl build/bdist.linux-x86_64/wheel
 
 script:
 - $PY --version
-- cd python_bindings && $PY setup.py test && cd ..
-- |
-  set -e
-  if [ "$TRAVIS_OS_NAME" = "linux" ] ; then
-      cd similarity_search;
-      ./release/bunit
-      ./release/test_integr integr.log 
-      cd ..
-      ls -lh
-  fi
+- pwd
+- ls -hl build/bdist.linux-x86_64/wheel
+- ls -hl ..
 
 cache:
   - apt
