@@ -2,7 +2,6 @@ language: cpp
 branches:
   only:
   - master
-  - /^v.*$/
 matrix:
   fast_finish: true
   include:
@@ -32,9 +31,6 @@ before_install:
   PY=python$PYTHON
   which $PY
   which pip
-  $PY -V 
-  ls -hl /opt/pyenv/shims
-  python3 -V
 - |
   if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
     export CXX=g++-4.9 CC=gcc-4.9; 
@@ -64,7 +60,8 @@ script:
 - $PY --version
 - pwd
 - ls -hl dist
-- ls -hl ..
+- 
+- ls -hl .
 
 deploy:
   provider: releases
