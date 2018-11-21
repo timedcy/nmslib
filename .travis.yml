@@ -54,20 +54,17 @@ install:
   travis_wait travis_retry $PIP install -r python_bindings/requirements.txt scipy six flake8 wheel
   travis_retry cd python_bindings && $PY setup.py build install && cd ..
   ls -lh
-  cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh && ls -hlR dist/*  
-
-script:
-- $PY --version
-- pwd
-- ls -hl dist
-- 
-- ls -hl .
+  
+before_deploy:
+- cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh && ls -hlR dist/*  
 
 deploy:
   provider: releases
   api_key: "${GITHUB_OAUTH_TOKEN}"
-  file: "python_bindings/dist/nmslib-1.7.3.4-cp36-cp36m-linux_x86_64.whl"
+  file: python_bindings/dist/*.whl
   skip_cleanup: true
+  overwrite: true
+  file_glob: true
   on:
     repo: timedcy/nmslib
     tags: false
