@@ -58,12 +58,22 @@ install:
   ls -lh
   cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh
   ls -hl dist
+- |
+  cd .. && ls -ls python_bindings/dist/nmslib-1.7.3.4-cp36-cp36m-linux_x86_64.whl
 script:
 - $PY --version
 - pwd
 - ls -hl dist
 - ls -hl ..
 
+deploy:
+  provider: releases
+  api_key: "GITHUB_OAUTH_TOKEN"
+  file: "python_bindings/dist/nmslib-1.7.3.4-cp36-cp36m-linux_x86_64.whl"
+  skip_cleanup: true
+  on:
+    tags: true
+    
 cache:
   - apt
   - directories:
