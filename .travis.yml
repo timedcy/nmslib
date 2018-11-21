@@ -52,14 +52,11 @@ install:
     cmake similarity_search
   fi
   make -j 4
-  echo "travis_wait travis_retry $PIP install  -r python_bindings/requirements.txt scipy six flake8"
-  travis_wait travis_retry $PIP install -r python_bindings/requirements.txt scipy six flake8
+  travis_wait travis_retry $PIP install -r python_bindings/requirements.txt scipy six flake8 wheel
   travis_retry cd python_bindings && $PY setup.py build install && cd ..
   ls -lh
-  cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh
-  ls -hl dist
-- |
-  cd .. && ls -ls python_bindings/dist/nmslib-1.7.3.4-cp36-cp36m-linux_x86_64.whl
+  cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh && ls -hlR dist/*  
+
 script:
 - $PY --version
 - pwd
@@ -68,7 +65,7 @@ script:
 
 deploy:
   provider: releases
-  api_key: "GITHUB_OAUTH_TOKEN"
+  api_key: "${GITHUB_OAUTH_TOKEN}"
   file: "python_bindings/dist/nmslib-1.7.3.4-cp36-cp36m-linux_x86_64.whl"
   skip_cleanup: true
   on:
