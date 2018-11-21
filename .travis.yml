@@ -57,12 +57,11 @@ install:
   travis_retry cd python_bindings && $PY setup.py build install && cd ..
   ls -lh
   cd python_bindings && $PY -W ignore setup.py bdist_wheel && ls -lh
-  ls -hl build/bdist.linux-x86_64/wheel
-
+  ls -hl dist
 script:
 - $PY --version
 - pwd
-- ls -hl build/bdist.linux-x86_64/wheel
+- ls -hl dist
 - ls -hl ..
 
 cache:
