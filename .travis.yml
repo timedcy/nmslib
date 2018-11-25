@@ -47,12 +47,8 @@ install:
 - cmake similarity_search -DWITH_EXTRAS=1
 - make -j 4
 - travis_wait travis_retry $PIP install -r python_bindings/requirements.txt scipy six flake8 wheel
-- travis_retry cd python_bindings && $PY setup.py build install && $PY -W ignore setup.py bdist_wheel && ls -lh && ls -hlR dist/* && cd ..
-- ls -lh
+- cd python_bindings && $PY setup.py build install && $PY -W ignore setup.py bdist_wheel && ls -hlR dist/* && cd ..
   
-before_deploy:
-- ls -hl python_bindings/dist/*.whl
-
 deploy:
   provider: releases
   api_key: "${GITHUB_OAUTH_TOKEN}"
